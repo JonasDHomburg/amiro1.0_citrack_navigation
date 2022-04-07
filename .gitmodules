@@ -1,7 +1,7 @@
 [submodule "ouster_lidar"]
 	path = ouster_lidar
-	url = git@github.com/JonasDHomburg/citrack_ouster_ros.git
+	url = git@github.com:JonasDHomburg/citrack_ouster_ros.git
 
 [submodule "rviz_textured_quads"]
 	path = rviz_textured_quads
-	url = git@github.com/JonasDHomburg/rviz_textured_quads.git
+	url = git@github.com:JonasDHomburg/rviz_textured_quads.git
