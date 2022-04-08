@@ -1,15 +1,15 @@
 [submodule "ouster_lidar"]
 	path = ouster_lidar
-	url = git@github.com:JonasDHomburg/citrack_ouster_ros.git
+	url = https://github.com/JonasDHomburg/citrack_ouster_ros.git
 [submodule "radar_ethernet_ros"]
 	path = radar_ethernet_ros
 	url = https://git.ks.techfak.uni-bielefeld.de/projects/ki-radar.radar_ros.git
 [submodule "vector_field_navigation"]
 	path = vector_field_navigation
-	url = git@github.com:JonasDHomburg/vector_field_navigation.git
+	url = https://github.com/JonasDHomburg/vector_field_navigation.git
 [submodule "amiro_robot"]
 	path = amiro_robot
-	url = git@github.com:JonasDHomburg/amiro_robot.git
+	url = https://github.com/JonasDHomburg/amiro_robot.git
 [submodule "rviz_textured_quads"]
 	path = rviz_textured_quads
-	url = git@github.com:JonasDHomburg/rviz_textured_quads.git
+	url = https://github.com/JonasDHomburg/rviz_textured_quads.git
