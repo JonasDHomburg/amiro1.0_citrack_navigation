@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="amiroID" default="0"/>
+  <arg name="meter_per_pixel" default="0.003"/>
+  <arg name="camera" default="0"/>
+  <arg name="laserscan" default="0"/>
+  <arg name="laserscan_sick" default="0"/>
+  <arg name="laserscan_hokuyo" default="0"/>
+
+  <!-- Steering -->
+  <node name="ros_geometry_msgs_twist_to_rst_value_array$(arg amiroID)" pkg="ros_to_rsb_bridge" type="ros_geometry_msgs_twist_to_rst_value_array" output="screen" cwd="ROS_HOME">
+    <param name="ros_listener_topic" value="/amiro$(arg amiroID)/cmd_vel"/>
+    <param name="rsb_publish_scope" value="/amiro$(arg amiroID)/motor"/>
+    <param name="duration" value="1000000"/>
+  </node>
+
+  <!-- Lights -->
+  <node name="light_ros_rsb_bride$(arg amiroID)" pkg="ros_to_rsb_bridge" type="ros_int_multiarray_rst_value_array" output="screen" cwd="ROS_HOME">
+    <param name="ros_listener_topic" value="/amiro$(arg amiroID)/set_lights"/>
+    <param name="rsb_publish_scope" value="/amiro$(arg amiroID)/set_lights"/>
+    <param name="duration" value="1000000"/>
+  </node>
+
+  <!-- optional sensors -->
+  <group if="$(arg camera)">
+    <node name="rst_vision_image_to_ros_sensormsgs_image$(arg amiroID)" pkg="rsb_to_ros_bridge" type="rst_vision_image_to_ros_sensormsgs_image" respawn="false" output="screen" cwd="ROS_HOME" clear_params="true">
+      <param name="rsb_listener_scope" value="amiro$(arg amiroID)/image/depth"/>
+      <param name="ros_publish_image_topic" value="amiro/$(arg amiroID)/image"/>
+      <param name="ros_publish_Compressed_image_topic" value="amiro$(arg amiroID)/image/compressed"/>
+      <param name="image_compression_format" value="jpg"/>
+      <param name="rostimenow" value="$(arg rostimenow)"/>
+    </node>
+  </group>
+
+  <group if="$(arg laserscan)">
+    <node name="rst_vision_laserscan_to_ros_sensormsgs_Laserscan$(arg amiroID)" pkg="rsb_to_ros_bridge" type="rst_vision_laserscan_to_ros_sensormsgs_Laserscan" respawn="false" output="screen" cwd="ROS_HOME" clear_params="true">
+      <param name="rsb_listener_scope" value="/amiro$(arg amiroID)/laserscan"/>
+      <param name="ros_publish_topic" value="/amiro$(arg amiroID)/laserscan"/>
+      <param name="offset_scan" value="-2.35619" if="$(arg laserscan_sick)"/>
+      <param name="offset_scan" value="-2.0944" if="$(arg laserscan_hokuyo)"/>
+      <param name="rostimenow" value="$(arg rostimenow)"/>
+    </node>
+  </group>
+</launch>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+ <launch>
+
+  <!-- RVIZ -->
+  <include file="$(find launch_scripts)/launch/start_rviz.launch">
+  </include>
+
+  <!-- Transforms -->
+  <include file="$(find launch_scripts)/launch/startTransforms.launch">
+  </include>
+
+  <!-- Lidar Sensor -->
+  <include file="$(find ouster_ros)/citrack_ouster.launch">
+  </include>
+
+  <!-- Radar Sensors -->
+  <include file="$(find radar_ethernet_ros)/startRadarNodes.launch">
+  </include>
+ </launch>

@@ -1,0 +1,1 @@
+catkin_make -DCMAKE_BUILD_TYPE=Release -DCATKIN_BLACKLIST_PACKAGES="ros_to_rsb_bridge;rsb_to_ros_bridge"
