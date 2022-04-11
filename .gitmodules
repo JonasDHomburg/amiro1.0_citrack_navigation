@@ -13,3 +13,6 @@
 [submodule "rviz_textured_quads"]
 	path = rviz_textured_quads
 	url = https://github.com/JonasDHomburg/rviz_textured_quads.git
+[submodule "citrack_vicon"]
+	path = citrack_vicon
+	url = git@github.com:JonasDHomburg/citrack_vicon.git
