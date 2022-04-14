@@ -1,10 +1,8 @@
 <?xml version="1.0"?>
  <launch>
 
-  <!--SETUP-->
-  <!--Found by trying out after calibration of cam5-2 -->
-  <!--<arg name="world2model_x" default="-0.15"/> 
-  <arg name="world2model_y" default="0.04"/>
+  <arg name="world2model_x" default="0.0"/>
+  <arg name="world2model_y" default="0.0"/>
   <arg name="world2model_z" default="0.0"/>
   <arg name="world2model_R" default="0.0"/>
   <arg name="world2model_P" default="0.0"/>
@@ -14,51 +12,29 @@
     <param name="source_frame" value="world"/>
     <param name="target_frame" value="citrack/base_link"/>
     <param name="rate" value="10.0"/>
-  </node> -->
-  <!--
-  <include file="$(find models)/launch/twb.xml">
-    <arg name="parent_frame_id" value="citrack" />
-  </include>
-  -->
+  </node>
 
   <!--FLOOR IMAGE (with dummy image from camera)-->
   <!--Found by trying out-->
-  <!--<arg name="world2image_x" default="0.0629146672536"/>
-  <arg name="world2image_y" default="0.158384440325"/>
+  <arg name="world2image_x" default="-0.005"/>
+  <arg name="world2image_y" default="-0.359"/>
   <arg name="world2image_z" default="0.0"/>
   <arg name="world2image_R" default="3.1516"/>
   <arg name="world2image_P" default="0.0"/>
-  <arg name="world2image_Y" default="0.0"/>
+  <arg name="world2image_Y" default="-1.570796"/>
   <node pkg="calibration" type="dynamic_transform_publisher" name="tf_citrack_floor">
     <param name="tf" value="$(arg world2image_x) $(arg world2image_y) $(arg world2image_z) $(arg world2image_R) $(arg world2image_P) $(arg world2image_Y)"/>
-    <param name="source_frame" value="world"/>
+    <param name="source_frame" value="citrack/base_link"/>
     <param name="target_frame" value="citrack/floor"/>
     <param name="rate" value="50.0"/>
-  </node>-->
-  
-  <!--
-  <node pkg="calibration" type="dynamic_transform_publisher" name="tf_citrack_floor_vicon">
-    <param name="tf" value="-0.25 0.1 0.0 3.14159 0 0"/>
-    <param name="source_frame" value="citrack/floor"/>
-    <param name="target_frame" value="vicon"/>
+  </node>
+
+  <node pkg="calibration" type="dynamic_transform_publisher" name="rviz_view">
+    <param name="tf" value="0 0 0 3.14159265 -1.570796 0"/>
+    <param name="source_frame" value="citrack/base_link"/>
+    <param name="target_frame" value="citrack/rviz_view"/>
     <param name="rate" value="50.0"/>
   </node>
 
-  <node pkg="calibration" type="dynamic_transform_publisher" name="tf_citrack_floor_vectorfield1">
-    <param name="tf" value="0.0 0.0 -0.1 0.0 0.0 1.570796"/>
-    <param name="source_frame" value="citrack/floor"/>
-    <param name="target_frame" value="vectorfield1"/>
-    <param name="rate" value="50.0"/>
-  </node>
-
-  <node pkg="calibration" type="dynamic_transform_publisher" name="tf_citrack_floor_vectorfield2">
-    <param name="tf" value="0.0 0.0 -0.1 0.0 0.0 1.570796"/>
-    <param name="source_frame" value="citrack/floor"/>
-    <param name="target_frame" value="vectorfield2"/>
-    <param name="rate" value="50.0"/>
-  </node> -->
-
-
-<!--  <node name="rviz_citrack" pkg="rviz" type="rviz" args="-d $(find demo)/rviz/citrack.rviz" respawn="true" /> -->
   <node name="rviz_citrack" pkg="rviz" type="rviz" args="-d $(find launch_scripts)/launch/citrack.rviz" respawn="true" />
  </launch>

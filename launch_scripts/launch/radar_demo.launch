@@ -1,19 +1,38 @@
 <?xml version="1.0"?>
- <launch>
+<launch>
+    <arg name="automatic" value="False"/>
 
-  <!-- RVIZ -->
-  <include file="$(find launch_scripts)/launch/start_rviz.launch">
-  </include>
+    <!-- RVIZ -->
+    <include file="$(find launch_scripts)/launch/start_rviz.launch"/>
 
-  <!-- Transforms -->
-  <include file="$(find launch_scripts)/launch/startTransforms.launch">
-  </include>
+    <!-- Vicon -->
+    <include file="$(find citrack_vicon)/citrack_vicon.launch"/>
 
-  <!-- Lidar Sensor -->
-  <include file="$(find ouster_ros)/citrack_ouster.launch">
-  </include>
+    <!-- Lidar Sensor -->
+    <include file="$(find ouster_ros)/citrack_ouster.launch"/>
 
-  <!-- Radar Sensors -->
-  <include file="$(find radar_ethernet_ros)/startRadarNodes.launch">
-  </include>
- </launch>
+    <!-- Radar Sensors -->
+    <include file="$(find radar_ethernet_ros)/startRadarNodes.launch"/>
+
+    <!-- Vector Field Navigation -->
+    <include file="$(find vector_field_navigation)/launch/transform.launch"/>
+    <include file="$(find vector_field_navigation)/launch/image_vectorfield_gridmap.launch">
+        <arg name="image_selector" value="False" if="$(arg automatic)"/>
+        <arg name="image_broadcaster" value="False" if="$(arg automatic)"/>
+    </include>
+
+    <!-- use one the following -->
+    <include file="$(find vector_field_navigation)/launch/amiro7_navigation.launch"/>
+<!--    <include file="$(find vector_field_navigation)/launch/vf_merged_main_6_7.launch"/>-->
+
+    <!-- AMiRo bridges -->
+    <include file="$(find rsb)/rsb_bridges">
+        <arg name="amiroID" value="7"/>
+    </include>
+    <!--
+    <include file="$(find rsb)/rsb_bridges">
+        <arg name="amiroID" value="6"/>
+    </include>
+    -->
+
+</launch>
