@@ -49,6 +49,9 @@
   <!-- Use doc_depend for packages you need only for building documentation: -->
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ros_to_rsb_bridge</buildtool_depend>
+  <buildtool_depend>rsb_to_ros_bridge</buildtool_depend>
+  <buildtool_depend>sai_msgs</buildtool_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->

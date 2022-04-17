@@ -204,4 +204,4 @@ include_directories(
 # catkin_add_nosetests(test)
 
 FILE(COPY rsb.conf DESTINATION $ENV{ROS_HOME})
-FILE(COPY "launch/rsb_bridges.launch" DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+FILE(COPY "rsb_bridges.launch" DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
