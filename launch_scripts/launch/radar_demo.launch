@@ -26,11 +26,11 @@
 <!--    <include file="$(find vector_field_navigation)/launch/vf_merged_main_6_7.launch"/>-->
 
     <!-- AMiRo bridges -->
-    <include file="$(find rsb)/launch/rsb_bridges.launch">
+    <include file="$(find rsb)/rsb_bridges.launch">
         <arg name="amiroID" value="7"/>
     </include>
     <!--
-    <include file="$(find rsb)/launch/rsb_bridges.launch">
+    <include file="$(find rsb)/rsb_bridges.launch">
         <arg name="amiroID" value="6"/>
     </include>
     -->
