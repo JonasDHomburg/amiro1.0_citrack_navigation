@@ -1,16 +1,29 @@
 <?xml version="1.0"?>
 <launch>
+    <arg name="automatic" value="True"/>
 
     <!-- RVIZ -->
-    <include file="$(find launch_scripts)/launch/start_rviz.launch">
+    <include file="$(find launch_scripts)/launch/start_rviz.launch"/>
+
+    <!-- Vector Field Navigation -->
+    <include file="$(find vector_field_navigation)/launch/transform.launch"/>
+    <include file="$(find vector_field_navigation)/launch/image_vectorfield_gridmap.launch">
+        <arg name="image_selector" value="False" if="$(arg automatic)"/>
+        <arg name="image_broadcaster" value="False" if="$(arg automatic)"/>
     </include>
 
-    <!-- Vicon -->
-    <include file="$(find citrack_vicon)/citrack_vicon.launch">
-    </include>
+    <!-- use one the following -->
+    <include file="$(find vector_field_navigation)/launch/amiro7_navigation.launch"/>
+<!--    <include file="$(find vector_field_navigation)/launch/vf_merged_main_6_7.launch"/>-->
 
-    <!-- Lidar Sensor -->
-    <include file="$(find ouster_ros)/citrack_ouster.launch">
+    <!-- AMiRo bridges -->
+    <include file="$(find rsb)/rsb_bridges.launch">
+        <arg name="amiroID" value="7"/>
     </include>
+    <!--
+    <include file="$(find rsb)/rsb_bridges.launch">
+        <arg name="amiroID" value="6"/>
+    </include>
+    -->
 
 </launch>
