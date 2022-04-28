@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Vicon -->
+    <include file="$(find citrack_vicon)/citrack_vicon.launch"/>
+
+    <!-- Lidar Sensor -->
+    <include file="$(find ouster_ros)/citrack_ouster.launch"/>
+
+    <!-- Radar Sensors -->
+    <include file="$(find radar_ethernet_ros)/startRadarNodes.launch"/>
+
+</launch>

@@ -18,10 +18,10 @@
     <include file="$(find vector_field_navigation)/launch/transform.launch"/>
     <include file="$(find vector_field_navigation)/launch/image_vectorfield_gridmap.launch">
         <arg name="image_selector" value="False" if="$(arg automatic)"/>
-        <arg name="image_broadcaster" value="False" if="$(arg automatic)"/>
+        <arg name="image_broadcaster" value="False" if="!$(arg automatic)"/>
     </include>
 
-    <!-- use one the following -->
+    <!-- use one of the following -->
     <include file="$(find vector_field_navigation)/launch/amiro7_navigation.launch"/>
 <!--    <include file="$(find vector_field_navigation)/launch/vf_merged_main_6_7.launch"/>-->
 
