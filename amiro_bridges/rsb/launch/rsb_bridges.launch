@@ -2,7 +2,7 @@
 <launch>
 
   <arg name="amiroID" default="0"/>
-  <arg name="meter_per_pixel" default="0.003"/>
+  <arg name="meter_per_pixel" default="0.006"/>
   <arg name="camera" default="0"/>
   <arg name="laserscan" default="0"/>
   <arg name="laserscan_sick" default="0"/>
