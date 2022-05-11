@@ -22,6 +22,12 @@
     <param name="duration" value="1000000"/>
   </node>
 
+  <node name="rst_value_array_to_ros_int_array" pkg="rsb_to_ros_bridge" type="rst_value_array_to_ros_int_array" respawn="false" output="screen" cwd="ROS_HOME" clear_params="true">
+    <param name="rsb_listener_scope" value="/amiro$(arg amiroID)/ringProx"/>
+    <param name="ros_publish_topic" value="/amiro$(arg amiroID)/ringProx"/>
+    <param name="rostimenow" value="$(arg rostimenow)"/>
+  </node>
+
   <!-- optional sensors -->
   <group if="$(arg camera)">
     <node name="rst_vision_image_to_ros_sensormsgs_image$(arg amiroID)" pkg="rsb_to_ros_bridge" type="rst_vision_image_to_ros_sensormsgs_image" respawn="false" output="screen" cwd="ROS_HOME" clear_params="true">
