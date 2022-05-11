@@ -3,6 +3,11 @@
     <arg name="vector_field_publisher" value="False"/>
     <arg name="single_amiro" value="True"/>
 
+    <arg name="image_width" default="500"/>
+    <arg name="image_height" default="500"/>
+    <arg name="meter_per_pixel" default="0.006"/>
+    <arg name="normalize" default="False"/>
+
     <!-- Vicon -->
 <!--    <include file="$(find citrack_vicon)/citrack_vicon.launch"/>-->
 
@@ -15,10 +20,20 @@
 
     <!-- use one of the following -->
     <group if="$(arg single_amiro)">
-        <include file="$(find vector_field_navigation)/launch/amiro7_navigation.launch"/>
+        <include file="$(find vector_field_navigation)/launch/amiro7_navigation.launch">
+            <arg name="image_width" value="$(arg image_width)"/>
+            <arg name="image_height" value="$(arg image_height)"/>
+            <arg name="meter_per_pixel" value="$(arg meter_per_pixel)"/>
+            <arg name="normalize" value="$(arg normalize)"/>
+        </include>
     </group>
     <group unless="$(arg single_amiro)">
-        <include file="$(find vector_field_navigation)/launch/vf_merged_main_6_7.launch"/>
+        <include file="$(find vector_field_navigation)/launch/vf_merged_main_6_7.launch">
+            <arg name="image_width" value="$(arg image_width)"/>
+            <arg name="image_height" value="$(arg image_height)"/>
+            <arg name="meter_per_pixel" value="$(arg meter_per_pixel)"/>
+            <arg name="normalize" value="$(arg normalize)"/>
+        </include>
     </group>
 
     <!-- AMiRo bridges -->
