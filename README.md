@@ -38,3 +38,10 @@ See [rviz_textured_quads/README.md](rviz_textured_quads/README.md) for further i
 ## Vector Field Navigation
 Former developed as 'potentialfield navigation'.
 Now adapted and extended as a navigation based on a vector field.
+
+
+# HowTo
+
+## Build
+
+## Docker

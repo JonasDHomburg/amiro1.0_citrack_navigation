@@ -24,7 +24,6 @@
             <arg name="image_width" value="$(arg image_width)"/>
             <arg name="image_height" value="$(arg image_height)"/>
             <arg name="meter_per_pixel" value="$(arg meter_per_pixel)"/>
-            <arg name="normalize" value="$(arg normalize)"/>
         </include>
     </group>
     <group unless="$(arg single_amiro)">

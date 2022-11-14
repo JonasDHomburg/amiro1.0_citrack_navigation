@@ -10,14 +10,14 @@
     <group if="$(arg image_selector)">
         <node name="image_selecter_node" pkg="vector_field_navigation" type="image_selecter_node" output="screen"
               cwd="ROS_HOME">
-            <param name="image_publisher_topic" value="/image"/>
+            <param name="image_publisher_topic" value="/citrack/image"/>
         </node>
     </group>
 
     <!-- change periodically the vector field and switch through images in folder -->
     <group if="$(arg image_broadcaster)">
         <node pkg="vector_field_navigation" name="repeat_images" type="ImageBroadcaster.py" output="screen">
-            <param name="topic" value="/image"/>
+            <param name="topic" value="/citrack/image"/>
             <param name="delay" value="30"/>
             <param name="path" value="$(find vector_field_navigation)/vectorfields"/>
         </node>
