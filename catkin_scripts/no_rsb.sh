@@ -1,1 +1,1 @@
-catkin_make -DCMAKE_BUILD_TYPE=Release -DCATKIN_BLACKLIST_PACKAGES="rsb;ros_to_rsb_bridge;rsb_to_ros_bridge;sai_msgs;"
+catkin_make -DCMAKE_BUILD_TYPE=Release -DCATKIN_BLACKLIST_PACKAGES="ros_to_rsb_bridge;rsb_to_ros_bridge;rsb;sai_msgs;vector_field_navigation"
