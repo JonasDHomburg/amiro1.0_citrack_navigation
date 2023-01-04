@@ -7,6 +7,6 @@
     <include file="$(find ouster_ros)/launch/citrack_ouster.launch"/>
 
     <!-- Radar Sensors -->
-    <include file="$(find radar_ethernet_ros)/launch/startRadarNodes.launch"/>
+    <include file="$(find ki_radar)/launch/startRadarNodes.launch"/>
 
 </launch>

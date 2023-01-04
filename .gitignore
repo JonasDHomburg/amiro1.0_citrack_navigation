@@ -1167,3 +1167,4 @@ FodyWeavers.xsd
 # End of https://www.toptal.com/developers/gitignore/api/ros,ros2,qt,qtcreator,pydev,python,pycharm,pycharm+all,pycharm+iml,visualstudiocode,visualstudio,clion,clion+iml,clion+all,cmake,premake-gmake,git
 
 CMakeLists.txt
+.vscode/*
