@@ -9,7 +9,7 @@ Panels:
         - /vicon_amiro71/Shape1
         - /vicon_amiro71/Covariance1
       Splitter Ratio: 0.5638889074325562
-    Tree Height: 865
+    Tree Height: 854
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -25,9 +25,10 @@ Panels:
     Name: Views
     Splitter Ratio: 0.5
   - Class: rviz/Time
+    Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: Radar L
+    SyncSource: OS1-64 Point
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -76,15 +77,12 @@ Visualization Manager:
           Value: false
         map:
           Value: false
-        os_imu:
-          Value: false
-        os_lidar:
-          Value: false
         os_sensor:
           Value: true
+        vectorfield:
+          Value: false
         world:
           Value: false
-      Marker Alpha: 1
       Marker Scale: 1
       Name: TF
       Show Arrows: false
@@ -106,12 +104,11 @@ Visualization Manager:
                 {}
               citrack/radar_right:
                 {}
-              os_lidar:
-                {}
               os_sensor:
-                os_imu:
-                  {}
+                {}
             map:
+              {}
+            vectorfield:
               {}
       Update Interval: 0
       Value: true
@@ -143,7 +140,6 @@ Visualization Manager:
       Keep: 1
       Name: vicon_amiro7
       Position Tolerance: 0.30000001192092896
-      Queue Size: 10
       Shape:
         Alpha: 1
         Axes Length: 0.30000001192092896
@@ -177,11 +173,11 @@ Visualization Manager:
       Min Intensity: 0
       Name: Radar L
       Position Transformer: XYZ
-      Queue Size: 10
+      Queue Size: 2
       Selectable: false
       Size (Pixels): 10
       Size (m): 0.05999999865889549
-      Style: Spheres
+      Style: Points
       Topic: /radar_rl/sensor
       Unreliable: false
       Use Fixed Frame: true
@@ -207,11 +203,11 @@ Visualization Manager:
       Min Intensity: 0
       Name: Radar R
       Position Transformer: XYZ
-      Queue Size: 10
+      Queue Size: 2
       Selectable: false
       Size (Pixels): 3
       Size (m): 0.05999999865889549
-      Style: Flat Squares
+      Style: Points
       Topic: /radar_rr/sensor
       Unreliable: false
       Use Fixed Frame: true
@@ -313,7 +309,6 @@ Visualization Manager:
         Z: 0
       Pose Color: 255; 85; 255
       Pose Style: None
-      Queue Size: 10
       Radius: 0.029999999329447746
       Shaft Diameter: 0.10000000149011612
       Shaft Length: 0.10000000149011612
@@ -337,7 +332,6 @@ Visualization Manager:
         Z: 0
       Pose Color: 255; 85; 255
       Pose Style: None
-      Queue Size: 10
       Radius: 0.029999999329447746
       Shaft Diameter: 0.10000000149011612
       Shaft Length: 0.10000000149011612
@@ -353,13 +347,72 @@ Visualization Manager:
       Head Length: 0.10000000149011612
       Head Radius: 0.10000000149011612
       Name: Pose
-      Queue Size: 10
       Shaft Length: 0.10000000149011612
       Shaft Radius: 0.05000000074505806
       Shape: Arrow
       Topic: /stacked_move_base_simple/goal
       Unreliable: false
       Value: false
+    - Alpha: 0.800000011920929
+      Autocompute Intensity Bounds: false
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: SNR
+      Class: rviz/PointCloud
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 1
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 230; 255; 0
+      Max Intensity: 50
+      Min Color: 255; 0; 0
+      Min Intensity: 0
+      Name: Radar L ML
+      Position Transformer: XYZ
+      Queue Size: 2
+      Selectable: false
+      Size (Pixels): 10
+      Size (m): 0.05999999865889549
+      Style: Spheres
+      Topic: /radar_rl/nn
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: false
+      Value: true
+    - Alpha: 0.800000011920929
+      Autocompute Intensity Bounds: false
+      Autocompute Value Bounds:
+        Max Value: -0.09999429434537888
+        Min Value: -0.09999721497297287
+        Value: true
+      Axis: Z
+      Channel Name: SNR
+      Class: rviz/PointCloud
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 1
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 0; 255; 0
+      Max Intensity: 50
+      Min Color: 0; 0; 255
+      Min Intensity: 0
+      Name: Radar R ML
+      Position Transformer: XYZ
+      Queue Size: 2
+      Selectable: false
+      Size (Pixels): 3
+      Size (m): 0.05999999865889549
+      Style: Flat Squares
+      Topic: /radar_rr/nn
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -394,7 +447,6 @@ Visualization Manager:
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
-      Field of View: 0.7853981852531433
       Focal Point:
         X: 0
         Y: 0
@@ -406,6 +458,7 @@ Visualization Manager:
       Near Clip Distance: 0.009999999776482582
       Pitch: 0
       Target Frame: citrack/rviz_view
+      Value: Orbit (rviz)
       Yaw: 0
     Saved:
       - Class: rviz/Orbit
@@ -415,7 +468,6 @@ Visualization Manager:
           Stereo Focal Distance: 1
           Swap Stereo Eyes: false
           Value: false
-        Field of View: 0.7853981852531433
         Focal Point:
           X: 0
           Y: 0
@@ -427,6 +479,7 @@ Visualization Manager:
         Near Clip Distance: 0.009999999776482582
         Pitch: 0
         Target Frame: citrack/rviz_view
+        Value: Orbit (rviz)
         Yaw: 0
       - Class: rviz/Orbit
         Distance: 9
@@ -435,7 +488,6 @@ Visualization Manager:
           Stereo Focal Distance: 1
           Swap Stereo Eyes: false
           Value: false
-        Field of View: 0.7853981852531433
         Focal Point:
           X: 0
           Y: 0
@@ -447,14 +499,15 @@ Visualization Manager:
         Near Clip Distance: 0.009999999776482582
         Pitch: 0
         Target Frame: citrack/rviz_view
+        Value: Orbit (rviz)
         Yaw: 0
 Window Geometry:
   Displays:
-    collapsed: false
+    collapsed: true
   Height: 1016
-  Hide Left Dock: false
+  Hide Left Dock: true
   Hide Right Dock: true
-  QMainWindow State: 000000ff00000000fd00000004000000000000016c0000039efc020000000ffb0000001200530065006c0065006300740069006f006e0000000028000000b00000005c00fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d0000039e000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d00610067006500000002f5000000cd0000000000000000fb0000000a0049006d00610067006501000002f7000000cb0000000000000000fb0000000a0049006d00610067006501000002f8000000ca0000000000000000fb0000000a0049006d00610067006501000002f7000000cb0000000000000000fb0000000a0049006d006100670065010000036a000000d00000000000000000fb0000000a0049006d006100670065000000036a000000d00000000000000000fb0000000c00430061006d00650072006101000002fe000000160000000000000000fb0000000a0049006d006100670065010000036a000000d00000000000000000000000010000014a0000039efc0200000004fb0000001e0054006f006f006c002000500072006f0070006500720074006900650073000000003d000001f70000005c00fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000043000000a30000000000000000fb0000000a00560069006500770073000000023a000001a1000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000005560000003efc0100000002fb0000000800540069006d00650000000000000005560000041800fffffffb0000000800540069006d006501000000000000045000000000000000000000060e0000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000004000000000000016c00000398fc020000000ffb0000001200530065006c0065006300740069006f006e0000000028000000b00000005e00fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073000000004000000398000000ce00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d00610067006500000002f5000000cd0000000000000000fb0000000a0049006d00610067006501000002f7000000cb0000000000000000fb0000000a0049006d00610067006501000002f8000000ca0000000000000000fb0000000a0049006d00610067006501000002f7000000cb0000000000000000fb0000000a0049006d006100670065010000036a000000d00000000000000000fb0000000a0049006d006100670065000000036a000000d00000000000000000fb0000000c00430061006d00650072006101000002fe000000160000000000000000fb0000000a0049006d006100670065010000036a000000d00000000000000000000000010000014a00000398fc0200000004fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000040000001f10000005e00fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000043000000a30000000000000000fb0000000a005600690065007700730000000237000001a1000000ac00fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000005560000003efc0100000002fb0000000800540069006d00650000000000000005560000044b00fffffffb0000000800540069006d00650100000000000004500000000000000000000003c00000039800000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -463,6 +516,6 @@ Window Geometry:
     collapsed: true
   Views:
     collapsed: true
-  Width: 1920
-  X: 0
+  Width: 960
+  X: 960
   Y: 27
